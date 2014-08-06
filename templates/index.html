@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>ひとことけいじばん</h2>
+  <div class="entry">
+    <table class="table table-hover" >
+      <th>なまえ</th>
+      <th>ほんぶん</th>
+      <th>とうこうにちじ</th>
+      </tr>
+    </thead>
+<!--  <ul class=entry> -->
+    {% for entry in out %}
+      <tbody>
+        <tr>
+          <td>{{ entry[0] }}</td>
+          <td>{{ entry[1] }}</td>
+          <td>{{ entry[2] }}</td>
+        </tr>  
+      </tbody>
+<!--    <HR size="100" width="80%" color="#ff6666"">  -->
+<!--    <li><h3>とうこうしゃめい:{{ entry[0] }}</h3>  -->
+<!--    <li><h3>ほんぶん:{{ entry[1] }}</h3>  -->
+<!--    <li><h3>とうこうじかん:{{ entry[2] }}</h3> -->  
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+    </table>
+  </div>
+<!--  </ul> -->
+  <div class="aggrigater">
+    <h3>とうこうする?</h3>
+    <form method="post" action="/input" class="input-group">
+      <div class="input-group">
+        <textarea name="name" cols="50" rows="1" class="form-control" placeholder="なまえ">おなまえ </textarea>
+        <textarea name="body" cols="50" rows="4" class="form-control" placeholder="ほんぶん">ほんぶん</textarea>
+      </div>
+      <p><input type="submit" value="とうこうする"></p>
+    </form>
+  </div>
+{% endblock %}
